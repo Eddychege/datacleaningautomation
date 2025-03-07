@@ -18,6 +18,13 @@ SITECOORDS_COL = "SITECOORDINATES"
 WARD_COL = "WARD"
 CONST_COL = "CONSTITUENCY"
 
+#  Load CSV Data
+df= pd.read_csv(path) # update the path to the data
+
+# Apply Filter for regions
+selected_region="YourRegionName"
+df=filter_by_region(df,selected_region)
+
 # Shapefile column names (based on your preview: 'county', 'subcounty', 'ward')
 SHP_COUNTY = "county"
 SHP_SUBCOUNTY = "subcounty"  # we'll treat as 'CONSTITUENCY' in CSV
@@ -161,3 +168,6 @@ else:
     print("Shapefile not loaded; partial results only.")
     print(f"Saved -> {UPDATED_PATH}")
     print("Rows updated so far:", set(changed_rows))
+
+
+
